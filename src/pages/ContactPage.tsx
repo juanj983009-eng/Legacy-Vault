@@ -191,10 +191,10 @@ export function ContactPage() {
                 </svg>
               </div>
               <h3 ref={successRef} tabIndex={-1} className="font-display text-2xl font-bold">
-                Consulta validada
+                Gracias por tus comentarios
               </h3>
               <p className="max-w-md text-sm leading-relaxed text-arena">
-                Los campos están completos. El mensaje no se envió.
+                Agradecemos que hayas dedicado un momento a completar el formulario.
               </p>
               <div className="pt-2">
                 <Button variant="primary" onClick={handleReset}>

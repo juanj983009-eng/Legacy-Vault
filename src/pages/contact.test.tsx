@@ -131,9 +131,8 @@ describe('Páginas complementarias de Legacy Vault', () => {
 
       await user.click(screen.getByRole('button', { name: 'Revisar consulta' }));
 
-      expect(screen.getByRole('heading', { name: 'Consulta validada', level: 3 })).toBeInTheDocument();
-      expect(screen.getByText(/El mensaje no se envió/)).toBeVisible();
-      expect(screen.getByText(/Los campos están completos/)).toBeInTheDocument();
+      expect(screen.getByRole('heading', { name: 'Gracias por tus comentarios', level: 3 })).toBeInTheDocument();
+      expect(screen.getByText(/Agradecemos que hayas dedicado un momento/)).toBeVisible();
       await user.click(screen.getByRole('button', { name: 'Escribir otra consulta' }));
       expect(screen.getByLabelText(/^Nombre/)).toHaveFocus();
       expect(screen.getByLabelText(/Mensaje detallado/i)).toHaveValue('');
