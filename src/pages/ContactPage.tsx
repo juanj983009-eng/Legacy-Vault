@@ -179,7 +179,7 @@ export function ContactPage() {
                 Escribe una consulta
               </h2>
               <p id="contact-privacy" className="mt-1.5 text-sm leading-relaxed text-arena">
-                Usa datos de ejemplo. El formulario revisa la consulta sin enviar ni guardar el mensaje.
+                Completa el formulario con los detalles de tu consulta.
               </p>
             </div>
           </div>

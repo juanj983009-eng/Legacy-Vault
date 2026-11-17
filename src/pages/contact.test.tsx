@@ -82,7 +82,7 @@ describe('Páginas complementarias de Legacy Vault', () => {
       );
 
       expect(screen.getByRole('heading', { name: 'Contáctanos', level: 1 })).toBeInTheDocument();
-      expect(screen.getByRole('form', { name: 'Escribe una consulta' })).toHaveAccessibleDescription(/sin enviar ni guardar/i);
+      expect(screen.getByRole('form', { name: 'Escribe una consulta' })).toHaveAccessibleDescription(/detalles de tu consulta/i);
 
 
       expect(screen.getByLabelText(/^Nombre/)).toBeInTheDocument();
