@@ -1,0 +1,100 @@
+@import 'tailwindcss' source(none);
+@import './tokens.css';
+@source '../app';
+@source '../components';
+@source '../pages';
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    background: var(--color-carbon);
+    color: var(--color-marfil);
+    font-family: var(--font-body);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-bronce);
+    outline-offset: 3px;
+  }
+}
+
+.form-field:focus {
+  border-color: transparent;
+  outline: 2px solid var(--field-focus-color, var(--color-bronce));
+  outline-offset: -2px;
+}
+
+@keyframes empty-cart-reveal {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (forced-colors: none) {
+  @supports (appearance: base-select) and selector(::picker(select)) {
+    select:not([multiple]):not([size]),
+    select:not([multiple]):not([size])::picker(select) {
+      appearance: base-select;
+    }
+
+    select:not([multiple]):not([size]) {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    select::picker-icon {
+      margin-inline-start: auto;
+      color: var(--color-bronce-hover);
+    }
+
+    select::picker(select) {
+      inline-size: anchor-size(width);
+      margin-block: 0.25rem;
+      padding: 0.25rem;
+      border: 1px solid var(--color-contorno);
+      border-radius: var(--radius-control);
+      background: var(--color-pizarra);
+      color: var(--color-marfil);
+    }
+
+    select:not([multiple]):not([size]) option {
+      min-block-size: 2.5rem;
+      padding: 0.5rem 0.65rem;
+      border-radius: var(--radius-control);
+      white-space: normal;
+    }
+
+    select:not([multiple]):not([size]) option:checked {
+      color: var(--color-bronce-hover);
+      font-weight: 600;
+    }
+
+    select:not([multiple]):not([size]) option:not(:disabled):is(:hover, :focus-visible) {
+      background: var(--color-bronce);
+      color: var(--color-carbon);
+      outline-offset: -2px;
+    }
+  }
+}
+
+@media (forced-colors: none) {
+  :root,
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-bronce) var(--color-pizarra);
+  }
+}
+
+@media (width < 64rem) {
+  :root:has(#menu-movil-drawer) {
+    overflow: hidden;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 300" width="480" height="300">
+  <defs>
+    <!-- Gradiente de fondo con viñeta de museo -->
+    <radialGradient id="museumGlow" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#22201D" />
+      <stop offset="60%" stop-color="#141414" />
+      <stop offset="100%" stop-color="#0B0B0B" />
+    </radialGradient>
+    <!-- Gradiente de bronce orfebrería -->
+    <linearGradient id="bronzeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E3D6BF" />
+      <stop offset="50%" stop-color="#B8893F" />
+      <stop offset="100%" stop-color="#7A5623" />
+    </linearGradient>
+  </defs>
+
+  <!-- Superficie principal -->
+  <rect width="480" height="300" fill="url(#museumGlow)" />
+
+  <!-- Marco exterior sutil -->
+  <rect x="8" y="8" width="464" height="284" rx="4" fill="none" stroke="#3A332A" stroke-width="1" />
+
+  <!-- Marco interior de bronce con filete doble -->
+  <rect x="18" y="18" width="444" height="264" rx="3" fill="none" stroke="#B8893F" stroke-width="1.2" stroke-opacity="0.85" />
+  <rect x="22" y="22" width="436" height="256" rx="2" fill="none" stroke="#B8893F" stroke-width="0.5" stroke-opacity="0.4" />
+
+  <!-- Esquinas ornamentales clásicas de orfebrería -->
+  <!-- Superior izquierda -->
+  <path d="M 22 36 L 36 36 L 36 22" fill="none" stroke="#B8893F" stroke-width="1.5" stroke-linecap="round" />
+  <circle cx="36" cy="36" r="1.5" fill="#B8893F" />
+  <!-- Superior derecha -->
+  <path d="M 458 36 L 444 36 L 444 22" fill="none" stroke="#B8893F" stroke-width="1.5" stroke-linecap="round" />
+  <circle cx="444" cy="36" r="1.5" fill="#B8893F" />
+  <!-- Inferior izquierda -->
+  <path d="M 22 264 L 36 264 L 36 278" fill="none" stroke="#B8893F" stroke-width="1.5" stroke-linecap="round" />
+  <circle cx="36" cy="264" r="1.5" fill="#B8893F" />
+  <!-- Inferior derecha -->
+  <path d="M 458 264 L 444 264 L 444 278" fill="none" stroke="#B8893F" stroke-width="1.5" stroke-linecap="round" />
+  <circle cx="444" cy="264" r="1.5" fill="#B8893F" />
+
+  <!-- Medallón central: Roseta de astrolabio y engranaje relojero -->
+  <g transform="translate(240, 130)">
+    <!-- Aura concéntrica exterior -->
+    <circle cx="0" cy="0" r="48" fill="none" stroke="#B8893F" stroke-width="0.75" stroke-opacity="0.25" stroke-dasharray="3 3" />
+    <circle cx="0" cy="0" r="42" fill="none" stroke="#B8893F" stroke-width="1" stroke-opacity="0.45" />
+    <circle cx="0" cy="0" r="36" fill="none" stroke="#B8893F" stroke-width="1.5" stroke-opacity="0.75" />
+    
+    <!-- Puntos cardinales / rayos de precisión -->
+    <line x1="0" y1="-44" x2="0" y2="-34" stroke="#B8893F" stroke-width="1.5" />
+    <line x1="0" y1="34" x2="0" y2="44" stroke="#B8893F" stroke-width="1.5" />
+    <line x1="-44" y1="0" x2="-34" y2="0" stroke="#B8893F" stroke-width="1.5" />
+    <line x1="34" y1="0" x2="44" y2="0" stroke="#B8893F" stroke-width="1.5" />
+
+    <!-- Roseta geométrica interior -->
+    <circle cx="0" cy="0" r="26" fill="#141414" stroke="#B8893F" stroke-width="1" />
+    <polygon points="0,-22 5,-7 20,-7 8,2 12,17 0,9 -12,17 -8,2 -20,-7 -5,-7" fill="url(#bronzeGrad)" fill-opacity="0.35" stroke="#B8893F" stroke-width="0.75" />
+    <circle cx="0" cy="0" r="5" fill="#B8893F" />
+
+    <!-- Manecillas de reloj histórico y compás -->
+    <line x1="0" y1="0" x2="0" y2="-15" stroke="#F6F1E7" stroke-width="1.5" stroke-linecap="round" />
+    <line x1="0" y1="0" x2="10" y2="6" stroke="#F6F1E7" stroke-width="1.5" stroke-linecap="round" />
+  </g>
+
+  <!-- Tipografía editorial de museo -->
+  <!-- Cabecera de archivo -->
+  <text x="240" y="58" fill="#B8893F" font-family="'Playfair Display', Georgia, serif" font-size="10" font-weight="700" letter-spacing="3" text-anchor="middle">
+    LEGACY VAULT
+  </text>
+  <line x1="160" y1="66" x2="320" y2="66" stroke="#B8893F" stroke-width="0.5" stroke-opacity="0.5" />
+
+  <!-- Título principal -->
+  <text x="240" y="208" fill="#F6F1E7" font-family="'Playfair Display', Georgia, serif" font-size="15" font-weight="700" letter-spacing="0.5" text-anchor="middle">
+    Imagen no disponible
+  </text>
+
+</svg>

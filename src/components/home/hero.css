@@ -1,0 +1,44 @@
+@media (prefers-reduced-motion: no-preference) {
+  .hero-typewriter > span {
+    --type-step: 90ms;
+    --type-index: 0;
+    --type-delay: calc(180ms + var(--type-index) * var(--type-step));
+    position: relative;
+    animation: hero-type-print var(--type-step) step-start var(--type-delay) backwards;
+  }
+
+  .hero-typewriter > span:nth-child(2) { --type-index: 1; }
+  .hero-typewriter > span:nth-child(3) { --type-index: 2; }
+  .hero-typewriter > span:nth-child(4) { --type-index: 3; }
+  .hero-typewriter > span:nth-child(5) { --type-index: 4; }
+  .hero-typewriter > span:nth-child(6) { --type-index: 5; }
+  .hero-typewriter > span:nth-child(7) { --type-index: 6; }
+  .hero-typewriter > span:nth-child(8) { --type-index: 7; }
+  .hero-typewriter > span:nth-child(9) { --type-index: 8; }
+
+  .hero-typewriter > span::after {
+    position: absolute;
+    inset-block-start: 0.24em;
+    inset-inline-start: 100%;
+    width: 2px;
+    height: 0.8em;
+    background: currentColor;
+    content: '';
+    opacity: 0;
+    animation: hero-type-caret var(--type-step) step-end var(--type-delay);
+  }
+
+  .hero-typewriter > span:last-child::after {
+    animation-duration: 200ms;
+  }
+
+  @keyframes hero-type-print {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes hero-type-caret {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+}

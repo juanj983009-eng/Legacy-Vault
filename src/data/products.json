@@ -1,0 +1,444 @@
+{
+  "productos": [
+    {
+      "id": "reloj-bolsillo-suizo",
+      "name": "Reloj de Bolsillo Suizo (c. 1912)",
+      "categoryId": "relojes",
+      "priceCents": 245000,
+      "currency": "PEN",
+      "images": [
+        {
+          "src": "/images/producto-reloj-bolsillo.webp",
+          "alt": "Reloj de bolsillo plateado con tapa abierta y esfera clara"
+        }
+      ],
+      "description": "Reloj de bolsillo de acabado plateado, con tapa abatible y una esfera clara que resalta bajo el aro metálico.",
+      "features": [
+        {
+          "label": "Formato",
+          "value": "Reloj de bolsillo",
+          "basis": "demonstrative"
+        }
+      ],
+      "availability": "available"
+    },
+    {
+      "id": "moneda-carlos-iii",
+      "name": "8 Reales de Plata Carlos III (1783)",
+      "categoryId": "monedas",
+      "priceCents": 189000,
+      "currency": "PEN",
+      "images": [
+        {
+          "src": "/images/producto-moneda-historica.webp",
+          "alt": "Moneda plateada desgastada con un perfil en relieve"
+        }
+      ],
+      "description": "Pieza numismática de acabado plata, con perfil en relieve y desgaste visible alrededor del borde.",
+      "features": [
+        {
+          "label": "Denominación de referencia",
+          "value": "8 reales",
+          "basis": "demonstrative"
+        }
+      ],
+      "availability": "available"
+    },
+    {
+      "id": "telemetro-mecanico",
+      "name": "Telémetro Mecánico 35mm (c. 1938)",
+      "categoryId": "camaras",
+      "priceCents": 312000,
+      "currency": "PEN",
+      "images": [
+        {
+          "src": "/images/producto-telemetro-mecanico.webp",
+          "alt": "Cámara de telémetro con cuerpo negro, visores y objetivo frontal"
+        }
+      ],
+      "description": "Cámara de cuerpo negro con objetivo frontal, controles manuales y visor óptico.",
+      "features": [
+        {
+          "label": "Formato de referencia",
+          "value": "35 mm",
+          "basis": "demonstrative"
+        }
+      ],
+      "availability": "available"
+    },
+    {
+      "id": "brujula-cardanica",
+      "name": "Brújula Cardánica Marina (c. 1895)",
+      "categoryId": "antiguedades",
+      "priceCents": 278000,
+      "currency": "PEN",
+      "images": [
+        {
+          "src": "/images/producto-brujula-cardanica.webp",
+          "alt": "Brújula náutica con anillos metálicos concéntricos en una caja de madera"
+        }
+      ],
+      "description": "Brújula náutica montada sobre anillos concéntricos dentro de una caja de madera.",
+      "features": [
+        {
+          "label": "Tipo de montaje",
+          "value": "Suspensión de anillos",
+          "basis": "demonstrative"
+        }
+      ],
+      "availability": "available"
+    },
+    {
+      "id": "astrolabio-nautico",
+      "name": "Astrolabio Náutico de Bronce",
+      "categoryId": "antiguedades",
+      "priceCents": 345000,
+      "currency": "PEN",
+      "images": [
+        {
+          "src": "/images/producto-astrolabio-nautico.webp",
+          "alt": "Astrolabio circular de bronce con aberturas y un brazo de mira"
+        }
+      ],
+      "description": "Instrumento circular de acabado bronce, con escala grabada, aberturas y brazo de mira.",
+      "features": [
+        {
+          "label": "Acabado de referencia",
+          "value": "Bronce",
+          "basis": "demonstrative"
+        }
+      ],
+      "availability": "available"
+    },
+    {
+      "id": "reloj-caza-laton",
+      "name": "Reloj de Caza en Latón Dorado",
+      "categoryId": "relojes",
+      "priceCents": 215000,
+      "currency": "PEN",
+      "images": [
+        {
+          "src": "/images/producto-reloj-caza-laton.webp",
+          "alt": "Reloj de bolsillo dorado con la tapa cerrada y adornos en relieve"
+        }
+      ],
+      "description": "Reloj de bolsillo de acabado dorado con tapa cerrada y adornos en relieve.",
+      "features": [
+        {
+          "label": "Acabado de referencia",
+          "value": "Latón dorado",
+          "basis": "demonstrative"
+        }
+      ],
+      "availability": "unavailable"
+    },
+    {
+      "id": "reloj-mesa-esfera-marfil",
+      "name": "Reloj de Mesa con Esfera Marfil",
+      "categoryId": "relojes",
+      "priceCents": 285000,
+      "currency": "PEN",
+      "images": [
+        {
+          "src": "/images/producto-reloj-mesa-esfera-marfil.webp",
+          "alt": "Reloj de sobremesa con caja de madera arqueada y esfera marfil"
+        }
+      ],
+      "description": "Reloj de mesa con caja compacta y esfera clara.",
+      "features": [
+        {
+          "label": "Formato",
+          "value": "Reloj de mesa",
+          "basis": "demonstrative"
+        }
+      ],
+      "availability": "available"
+    },
+    {
+      "id": "medalla-conmemorativa-cobre",
+      "name": "Medalla Conmemorativa de Cobre",
+      "categoryId": "monedas",
+      "priceCents": 198000,
+      "currency": "PEN",
+      "images": [
+        {
+          "src": "/images/producto-medalla-conmemorativa-cobre.webp",
+          "alt": "Medalla circular de cobre con relieve y orla"
+        }
+      ],
+      "description": "Medalla de vitrina con orla y relieve ornamental.",
+      "features": [
+        {
+          "label": "Acabado de referencia",
+          "value": "Cobre",
+          "basis": "demonstrative"
+        }
+      ],
+      "availability": "available"
+    },
+    {
+      "id": "camara-plegable-fuelle",
+      "name": "Cámara Plegable de Fuelle",
+      "categoryId": "camaras",
+      "priceCents": 295000,
+      "currency": "PEN",
+      "images": [
+        {
+          "src": "/images/producto-camara-plegable-fuelle.webp",
+          "alt": "Cámara de caja negra desplegada con fuelle y lente frontal"
+        }
+      ],
+      "description": "Cámara plegable con fuelle y visor.",
+      "features": [
+        {
+          "label": "Diseño de referencia",
+          "value": "Fuelle plegable",
+          "basis": "demonstrative"
+        }
+      ],
+      "availability": "available"
+    },
+    {
+      "id": "esfera-armilar-escritorio",
+      "name": "Esfera Armilar de Escritorio",
+      "categoryId": "antiguedades",
+      "priceCents": 329000,
+      "currency": "PEN",
+      "images": [
+        {
+          "src": "/images/producto-esfera-armilar-escritorio.webp",
+          "alt": "Esfera armilar con aros de bronce y pedestal"
+        }
+      ],
+      "description": "Instrumento ornamental con aros concéntricos y pedestal.",
+      "features": [
+        {
+          "label": "Formato",
+          "value": "Esfera armilar",
+          "basis": "demonstrative"
+        }
+      ],
+      "availability": "available"
+    },
+    {
+      "id": "reloj-pulsera-cuerda",
+      "name": "Reloj de Pulsera de Cuerda",
+      "categoryId": "relojes",
+      "priceCents": 174000,
+      "currency": "PEN",
+      "images": [
+        {
+          "src": "/images/producto-reloj-pulsera-cuerda.webp",
+          "alt": "Reloj de pulsera con correa de cuero y esfera crema"
+        }
+      ],
+      "description": "Reloj de pulsera con correa de cuero y esfera crema.",
+      "features": [
+        {
+          "label": "Colección de referencia",
+          "value": "Relojería",
+          "basis": "demonstrative"
+        }
+      ],
+      "availability": "available"
+    },
+    {
+      "id": "reloj-viaje-estuche",
+      "name": "Reloj de Viaje con Estuche",
+      "categoryId": "relojes",
+      "priceCents": 186000,
+      "currency": "PEN",
+      "images": [
+        {
+          "src": "/images/producto-reloj-viaje-estuche.webp",
+          "alt": "Reloj de viaje cuadrado en un estuche abierto"
+        }
+      ],
+      "description": "Reloj de viaje cuadrado en un estuche abierto.",
+      "features": [
+        {
+          "label": "Colección de referencia",
+          "value": "Relojería",
+          "basis": "demonstrative"
+        }
+      ],
+      "availability": "available"
+    },
+    {
+      "id": "ficha-comercial-laton",
+      "name": "Ficha Comercial de Latón",
+      "categoryId": "monedas",
+      "priceCents": 158000,
+      "currency": "PEN",
+      "images": [
+        {
+          "src": "/images/producto-ficha-comercial-laton.webp",
+          "alt": "Ficha octogonal de latón con relieves geométricos"
+        }
+      ],
+      "description": "Ficha octogonal de latón con relieves geométricos.",
+      "features": [
+        {
+          "label": "Colección de referencia",
+          "value": "Numismática",
+          "basis": "demonstrative"
+        }
+      ],
+      "availability": "available"
+    },
+    {
+      "id": "moneda-bronce-espiga",
+      "name": "Moneda de Bronce con Espiga",
+      "categoryId": "monedas",
+      "priceCents": 175000,
+      "currency": "PEN",
+      "images": [
+        {
+          "src": "/images/producto-moneda-bronce-espiga.webp",
+          "alt": "Moneda de bronce patinado con una espiga en relieve"
+        }
+      ],
+      "description": "Moneda de bronce patinado con una espiga en relieve.",
+      "features": [
+        {
+          "label": "Colección de referencia",
+          "value": "Numismática",
+          "basis": "demonstrative"
+        }
+      ],
+      "availability": "available"
+    },
+    {
+      "id": "moneda-niquel-estrella",
+      "name": "Moneda de Níquel con Estrella",
+      "categoryId": "monedas",
+      "priceCents": 183000,
+      "currency": "PEN",
+      "images": [
+        {
+          "src": "/images/producto-moneda-niquel-estrella.webp",
+          "alt": "Moneda gris de borde estriado con una estrella en relieve"
+        }
+      ],
+      "description": "Moneda gris de borde estriado con una estrella en relieve.",
+      "features": [
+        {
+          "label": "Colección de referencia",
+          "value": "Numismática",
+          "basis": "demonstrative"
+        }
+      ],
+      "availability": "available"
+    },
+    {
+      "id": "camara-doble-objetivo",
+      "name": "Cámara Réflex de Doble Objetivo",
+      "categoryId": "camaras",
+      "priceCents": 304000,
+      "currency": "PEN",
+      "images": [
+        {
+          "src": "/images/producto-camara-doble-objetivo.webp",
+          "alt": "Cámara negra de cuerpo vertical con dos objetivos"
+        }
+      ],
+      "description": "Cámara negra de cuerpo vertical con dos objetivos.",
+      "features": [
+        {
+          "label": "Colección de referencia",
+          "value": "Fotografía y cine",
+          "basis": "demonstrative"
+        }
+      ],
+      "availability": "available"
+    },
+    {
+      "id": "camara-cajon-cuero",
+      "name": "Cámara de Cajón Forrada en Cuero",
+      "categoryId": "camaras",
+      "priceCents": 228000,
+      "currency": "PEN",
+      "images": [
+        {
+          "src": "/images/producto-camara-cajon-cuero.webp",
+          "alt": "Cámara rectangular de cajón con lente pequeña y asa superior"
+        }
+      ],
+      "description": "Cámara rectangular de cajón con lente pequeña y asa superior.",
+      "features": [
+        {
+          "label": "Colección de referencia",
+          "value": "Fotografía y cine",
+          "basis": "demonstrative"
+        }
+      ],
+      "availability": "available"
+    },
+    {
+      "id": "proyector-cine-manual",
+      "name": "Proyector de Cine Manual",
+      "categoryId": "camaras",
+      "priceCents": 331000,
+      "currency": "PEN",
+      "images": [
+        {
+          "src": "/images/producto-proyector-cine-manual.webp",
+          "alt": "Proyector de sobremesa con bobinas y manivela"
+        }
+      ],
+      "description": "Proyector de sobremesa con bobinas y manivela.",
+      "features": [
+        {
+          "label": "Colección de referencia",
+          "value": "Fotografía y cine",
+          "basis": "demonstrative"
+        }
+      ],
+      "availability": "available"
+    },
+    {
+      "id": "tintero-bronce-vidrio",
+      "name": "Tintero de Vidrio con Base de Bronce",
+      "categoryId": "antiguedades",
+      "priceCents": 205000,
+      "currency": "PEN",
+      "images": [
+        {
+          "src": "/images/producto-tintero-bronce-vidrio.webp",
+          "alt": "Tintero de vidrio facetado montado en una base de bronce"
+        }
+      ],
+      "description": "Tintero de vidrio facetado montado en una base de bronce.",
+      "features": [
+        {
+          "label": "Colección de referencia",
+          "value": "Objetos de escritorio e instrumentos",
+          "basis": "demonstrative"
+        }
+      ],
+      "availability": "available"
+    },
+    {
+      "id": "catalejo-laton-extensible",
+      "name": "Catalejo Extensible de Latón",
+      "categoryId": "antiguedades",
+      "priceCents": 267000,
+      "currency": "PEN",
+      "images": [
+        {
+          "src": "/images/producto-catalejo-laton-extensible.webp",
+          "alt": "Catalejo extensible de latón con empuñadura de cuero"
+        }
+      ],
+      "description": "Catalejo extensible de latón con empuñadura de cuero.",
+      "features": [
+        {
+          "label": "Colección de referencia",
+          "value": "Objetos de escritorio e instrumentos",
+          "basis": "demonstrative"
+        }
+      ],
+      "availability": "available"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+# Dependencias, build y herramientas locales
+node_modules/
+dist/
+coverage/
+.vite/
+.npm-cache/
+.data/
+*.tsbuildinfo
+*.log
+
+# Variables de entorno: ninguna credencial pertenece al frontend
+.env
+.env.*
+!.env.example
+
+# Archivos locales de editores / sistema
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+

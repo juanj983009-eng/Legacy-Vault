@@ -1,0 +1,18 @@
+@theme {
+  --color-carbon: #0b0b0b;
+  --color-pizarra: #1a1a1a;
+  --color-bronce: #b8893f;
+  --color-marfil: #f6f1e7;
+  --color-arena: #e3d6bf;
+  --color-madera: #4b2e1a;
+  --color-superficie: #242424;
+  --color-contorno: #3a332a;
+  --color-exito: #4e7d56;
+  --color-error: #a83e38;
+  --color-bronce-hover: #cfa153;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: Inter, system-ui, sans-serif;
+  --radius-control: 6px;
+  --radius-tarjeta: 8px;
+  --spacing-seccion: 64px;
+}
