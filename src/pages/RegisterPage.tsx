@@ -14,6 +14,7 @@ export function RegisterPage() {
   const { register, email, sessionPending } = useDemoAccess();
   const { formRef, errors, setErrors } = useFormErrors<'alias' | 'email' | 'password' | 'confirmation'>();
   const [problem, setProblem] = useState('');
+  const [confirmation, setConfirmation] = useState(false);
   const [busy, setBusy] = useState(false);
   const submitting = useRef(false);
 
@@ -36,6 +37,10 @@ export function RegisterPage() {
     setBusy(true);
     try {
       const result = await register(alias, credentials.email, credentials.password);
+      if (result === 'confirmation') {
+        setConfirmation(true);
+        return;
+      }
       if (result === 'duplicate') {
         setErrors({ email: 'Este correo ya está registrado. Puedes iniciar sesión.' });
         return;
@@ -60,6 +65,7 @@ export function RegisterPage() {
 
   return (
     <AccessFrame scene="register">
+      {confirmation ? <p role="status" className="rounded-control border border-bronce/60 bg-pizarra p-4 text-sm text-marfil">Revisa tu correo para confirmar tu cuenta. Después podrás iniciar sesión.</p> :
       <form ref={formRef} onSubmit={(event) => void submit(event)} noValidate autoComplete="off" aria-label="Datos del perfil" className="space-y-4">
         <div className="grid gap-4 sm:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
           <DemoField id="profile-alias" name="alias" label="Nombre" required maxLength={MAX_ALIAS}
@@ -73,7 +79,7 @@ export function RegisterPage() {
         <Button type="submit" size="lg" disabled={busy} className="w-full">
           <IconUser className="size-4 shrink-0" /> {busy ? 'Creando perfil…' : 'Crear mi perfil'}
         </Button>
-      </form>
+      </form>}
     </AccessFrame>
   );
 }

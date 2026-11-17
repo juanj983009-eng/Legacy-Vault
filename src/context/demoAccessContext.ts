@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react';
 
-export type ProfileResult = 'ok' | 'duplicate' | 'invalid';
+export type ProfileResult = 'ok' | 'duplicate' | 'invalid' | 'confirmation';
 
 type DemoAccess = {
   alias: string | null;

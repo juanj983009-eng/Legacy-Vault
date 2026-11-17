@@ -8,7 +8,7 @@ Aplicación web de antigüedades y coleccionables con catálogo, colecciones, ca
 - Fichas de producto con fotografías, información y disponibilidad.
 - Carrito con ajuste de cantidades y persistencia local en el navegador.
 - Checkout con validación de datos, revisión y confirmación simulada.
-- Registro, inicio de sesión y acceso como visitante mediante un servicio local de cuentas.
+- Registro, inicio de sesión y acceso como visitante. En producción se utiliza Supabase Auth con confirmación por correo.
 - Formulario de contacto con validación en el navegador.
 - Interfaz adaptable a dispositivos móviles, tabletas y escritorio.
 
@@ -85,7 +85,7 @@ Los productos se encuentran en `src/data/products.json`. En desarrollo, el clien
 
 El servicio local también ofrece las rutas `/api/auth/session`, `/api/auth/register`, `/api/auth/login` y `/api/auth/logout`. Las solicitudes de registro, acceso y cierre de sesión utilizan `POST`.
 
-La configuración de Vercel incluye una función para consultar productos y reglas para las rutas de la aplicación. **No incluye un servicio desplegable de cuentas**: para habilitar autenticación en un entorno publicado se necesita implementar y configurar un backend apropiado. La presencia de `vercel.json` por sí sola no significa que el proyecto esté desplegado.
+La configuración de Vercel incluye una función para consultar productos y reglas para las rutas de la aplicación. En la compilación de producción, las cuentas se gestionan mediante Supabase Auth; en desarrollo se usa el servidor local. Los registros en línea requieren confirmar el correo antes de iniciar sesión. El servicio de correo predeterminado de Supabase tiene restricciones; para admitir usuarios externos se debe configurar un proveedor SMTP propio.
 
 ## Estructura
 
