@@ -7,7 +7,6 @@ export function CategoryGrid() {
   return (
     <section id="colecciones" aria-labelledby="collection-heading" className="scroll-mt-20 border-b border-contorno bg-carbon py-7 sm:py-9">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* ENCABEZADO DE SECCIÓN */}
         <div className="mb-4 flex flex-wrap items-center justify-between gap-x-4 gap-y-1">
           <h2 id="collection-heading" className="font-display text-2xl font-bold tracking-tight text-marfil sm:text-3xl">
             Colecciones destacadas
@@ -17,11 +16,23 @@ export function CategoryGrid() {
           </Link>
         </div>
 
-        {/* RETÍCULA RESPONSIVE DE CATEGORÍAS */}
-        <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
-          {categories.map((category) => (
-            <CategoryCard key={category.id} category={category} />
-          ))}
+        <div className="collections-marquee relative left-1/2 w-screen -translate-x-1/2">
+          <div className="collections-marquee__track">
+            <ul className="collections-marquee__group" aria-label="Colecciones destacadas">
+              {categories.map((category) => (
+                <li key={category.id} className="collections-marquee__item">
+                  <CategoryCard category={category} />
+                </li>
+              ))}
+            </ul>
+            <ul className="collections-marquee__group collections-marquee__copy" aria-hidden="true" inert>
+              {categories.map((category) => (
+                <li key={category.id} className="collections-marquee__item">
+                  <CategoryCard category={category} />
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </section>

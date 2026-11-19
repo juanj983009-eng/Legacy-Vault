@@ -11,6 +11,12 @@ type ProductPhotoProps = {
 
 export function ProductPhoto({ image, className, priority = false }: ProductPhotoProps) {
   const [failed, setFailed] = useState(false);
+  const [prevSrc, setPrevSrc] = useState(image.src);
+
+  if (image.src !== prevSrc) {
+    setPrevSrc(image.src);
+    setFailed(false);
+  }
 
   return (
     <>

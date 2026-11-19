@@ -20,7 +20,7 @@ export function BrandLogo() {
         />
       )}
       <span className="flex flex-col justify-center sm:border-l sm:border-bronce/45 sm:pl-3">
-        <span className="whitespace-nowrap font-display text-base leading-none font-bold tracking-wide text-marfil max-[359px]:max-w-20 max-[359px]:text-sm max-[359px]:whitespace-normal sm:text-[1.375rem]">
+        <span className="whitespace-nowrap font-display text-sm leading-none font-bold tracking-wide text-marfil max-[359px]:max-w-20 max-[359px]:whitespace-normal sm:text-[1.375rem]">
           LEGACY VAULT
         </span>
         <span className="mt-1.5 hidden text-[9px] leading-none font-semibold tracking-[0.14em] text-arena uppercase sm:block">

@@ -3,16 +3,19 @@ import { Link, NavLink, useLocation } from 'react-router';
 import { PATHS } from '../../app/paths';
 import { useDemoAccess } from '../../context/demoAccessContext';
 import { useCart } from '../../hooks/useCart';
+import { useFavorites } from '../../hooks/useFavorites';
 import { BrandLogo } from '../ui/BrandLogo';
-import { IconCart, IconClose, IconMenu, IconSearch } from '../ui/Icons';
+import { IconCart, IconClose, IconHeart, IconMenu, IconSearch } from '../ui/Icons';
 
 export function Navbar() {
   const { itemCount } = useCart();
+  const { favoriteCount } = useFavorites();
   const { alias, email } = useDemoAccess();
   const accountName = email ? alias : null;
   const initials = accountName?.normalize('NFC').trim().split(/\s+/).slice(0, 2)
     .map((part) => part.match(/[\p{L}\p{N}]/u)?.[0]?.toLocaleUpperCase('es') ?? '').join('') || 'LV';
   const unitLabel = itemCount === 1 ? 'unidad' : 'unidades';
+  const favoritesUnitLabel = favoriteCount === 1 ? 'pieza' : 'piezas';
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const drawerRef = useRef<HTMLDivElement>(null);
@@ -31,7 +34,7 @@ export function Navbar() {
     if (!mobileMenuOpen) return;
 
     drawerRef.current?.querySelector('a')?.focus();
-    const desktop = window.matchMedia?.('(min-width: 64rem)');
+    const desktop = window.matchMedia?.('(min-width: 80rem)');
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
@@ -75,7 +78,7 @@ export function Navbar() {
     >
       <nav
         aria-label="Navegación principal"
-        className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-2 px-3 max-[359px]:px-2 sm:gap-4 sm:px-6 lg:px-8"
+        className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-2 px-3 max-[359px]:px-2 sm:gap-4 sm:px-6 lg:px-8 min-[100rem]:max-w-none min-[100rem]:px-[4vw]"
       >
         {/* LOGO CORPORATIVO */}
         <Link
@@ -86,7 +89,7 @@ export function Navbar() {
         </Link>
 
         {/* NAVEGACIÓN PRINCIPAL DESKTOP */}
-        <div className="hidden lg:flex items-center gap-7">
+        <div className="hidden xl:flex items-center gap-7">
           <NavLink end to={PATHS.home} className={navLinkClasses}>
             Inicio
           </NavLink>
@@ -118,7 +121,7 @@ export function Navbar() {
           <Link
             to={PATHS.catalog}
             aria-label="Búsqueda en catálogo"
-            className={`inline-flex min-h-11 min-w-10 sm:min-w-11 items-center justify-center rounded-control p-2 text-arena transition-colors hover:text-bronce focus-visible:outline-2 focus-visible:outline-bronce ${accountName ? 'max-[449px]:hidden' : ''}`}
+            className="hidden md:inline-flex min-h-11 min-w-11 items-center justify-center rounded-control p-2 text-arena transition-colors hover:text-bronce focus-visible:outline-2 focus-visible:outline-bronce"
           >
             <IconSearch className="h-5 w-5" />
           </Link>
@@ -133,13 +136,28 @@ export function Navbar() {
             </NavLink>
           )}
 
+          {/* Acceso a Favoritos */}
+          <NavLink
+            to={PATHS.favorites}
+            className="hidden min-[420px]:inline-flex min-h-11 items-center gap-1.5 sm:gap-2 rounded-control border border-contorno bg-pizarra px-2.5 sm:px-3.5 py-2 text-sm font-medium text-marfil transition-colors hover:border-bronce focus-visible:outline-2 focus-visible:outline-bronce"
+          >
+            <IconHeart className="h-4 w-4 text-bronce" />
+            <span className="sr-only xl:not-sr-only">Favoritos</span>{' '}
+            <span
+              className="flex h-5 w-5 items-center justify-center rounded-full bg-bronce text-[11px] font-bold text-carbon"
+            >
+              {favoriteCount}
+            </span>
+            {' '}<span className="sr-only">{favoritesUnitLabel}</span>
+          </NavLink>
+
           {/* Acceso al Carrito */}
           <NavLink
             to={PATHS.cart}
             className="inline-flex min-h-11 items-center gap-1.5 sm:gap-2 rounded-control border border-contorno bg-pizarra px-2.5 sm:px-3.5 py-2 text-sm font-medium text-marfil transition-colors hover:border-bronce focus-visible:outline-2 focus-visible:outline-bronce"
           >
             <IconCart className="h-4 w-4 text-bronce" />
-            <span className="sr-only sm:not-sr-only">Carrito</span>{' '}
+            <span className="sr-only xl:not-sr-only">Carrito</span>{' '}
             <span
               className="flex h-5 w-5 items-center justify-center rounded-full bg-bronce text-[11px] font-bold text-carbon"
             >
@@ -156,7 +174,7 @@ export function Navbar() {
             aria-expanded={mobileMenuOpen}
             aria-controls="menu-movil-drawer"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="inline-flex lg:hidden min-h-11 min-w-10 sm:min-w-11 items-center justify-center rounded-control border border-contorno p-2 text-marfil transition-colors hover:border-bronce hover:text-bronce focus-visible:outline-2 focus-visible:outline-bronce"
+            className="inline-flex xl:hidden min-h-11 min-w-10 sm:min-w-11 items-center justify-center rounded-control border border-contorno p-2 text-marfil transition-colors hover:border-bronce hover:text-bronce focus-visible:outline-2 focus-visible:outline-bronce"
           >
             {mobileMenuOpen ? <IconClose className="h-6 w-6" /> : <IconMenu className="h-6 w-6" />}
           </button>
@@ -170,7 +188,7 @@ export function Navbar() {
           role="dialog"
           aria-label="Menú de navegación móvil"
           ref={drawerRef}
-          className="absolute inset-x-0 top-full z-50 max-h-[calc(100dvh-5rem)] overflow-y-auto overscroll-contain border-y border-contorno bg-carbon shadow-xl lg:hidden"
+          className="absolute inset-x-0 top-full z-50 max-h-[calc(100dvh-5rem)] overflow-y-auto overscroll-contain border-y border-contorno bg-carbon shadow-xl xl:hidden"
         >
           <div className="mx-auto flex max-w-3xl flex-col gap-5 px-4 py-5 sm:px-6">
             <div className="border-b border-contorno pb-4">
@@ -232,6 +250,19 @@ export function Navbar() {
                 Pedidos y perfil
               </span>
               <ul className="mt-3 flex flex-col space-y-1">
+                <li>
+                  <NavLink
+                    to={PATHS.favorites}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex min-h-11 items-center justify-between rounded-control px-3 text-base font-medium text-marfil hover:bg-pizarra hover:text-bronce"
+                  >
+                    <span>Favoritos</span>{' '}
+                    <span className="rounded-full bg-bronce px-2 py-0.5 text-xs font-bold text-carbon">
+                      {favoriteCount}
+                    </span>
+                    {' '}<span className="sr-only">{favoritesUnitLabel}</span>
+                  </NavLink>
+                </li>
                 <li>
                   <NavLink
                     to={PATHS.cart}

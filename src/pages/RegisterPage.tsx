@@ -45,6 +45,14 @@ export function RegisterPage() {
         setErrors({ email: 'Este correo ya está registrado. Puedes iniciar sesión.' });
         return;
       }
+      if (result === 'weak_password') {
+        setErrors({ password: 'Esta contraseña no cumple los requisitos de seguridad. Elige otra.' });
+        return;
+      }
+      if (result === 'leaked_password') {
+        setErrors({ password: 'Esta contraseña ha aparecido en filtraciones públicas. Elige otra.' });
+        return;
+      }
       if (result !== 'ok') setProblem('No se pudo crear el perfil. Intenta de nuevo.');
     } catch {
       setProblem('No se pudo crear el perfil. Intenta de nuevo.');

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { motion, useReducedMotion } from 'motion/react';
 import { IconCart } from '../ui/Icons';
 import { useCart } from '../../hooks/useCart';
 import type { Product } from '../../types/catalog';
@@ -7,6 +8,7 @@ import { MAX_CART_QUANTITY } from '../../utils/cart';
 export function AddToCartButton({ product, compact = false }: { product: Product; compact?: boolean }) {
   const { items, addItem, canAdd } = useCart();
   const [added, setAdded] = useState(false);
+  const reduceMotion = useReducedMotion();
   const feedbackTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   useEffect(() => () => clearTimeout(feedbackTimer.current), []);
   const quantity = items.find(({ productId }) => productId === product.id)?.quantity ?? 0;
@@ -18,7 +20,8 @@ export function AddToCartButton({ product, compact = false }: { product: Product
     : `${label}: ${product.name}`;
 
   return (
-    <button
+    <motion.button
+      whileTap={reduceMotion ? {} : { scale: 0.97 }}
       type="button"
       disabled={!available || atLimit}
       aria-label={accessibleLabel}
@@ -32,6 +35,6 @@ export function AddToCartButton({ product, compact = false }: { product: Product
     >
       {added && !atLimit ? <span aria-hidden="true">✓</span> : <IconCart className="h-3.5 w-3.5 shrink-0" />}
       <span>{added && !atLimit ? 'Agregado' : label}</span>
-    </button>
+    </motion.button>
   );
 }

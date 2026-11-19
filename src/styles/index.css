@@ -1,5 +1,6 @@
 @import 'tailwindcss' source(none);
 @import './tokens.css';
+@import './fonts.css';
 @source '../app';
 @source '../components';
 @source '../pages';
@@ -16,6 +17,21 @@
     outline: 2px solid var(--color-bronce);
     outline-offset: 3px;
   }
+}
+
+/* La segunda copia completa el ciclo sin saltos y no recibe foco. */
+.collections-marquee { overflow: hidden; }
+.collections-marquee__track { display: flex; width: max-content; animation: collections-drift 32s linear infinite; }
+.collections-marquee__group { display: flex; flex: none; gap: 1.25rem; margin: 0; padding: 0 1.25rem 0 0; list-style: none; }
+.collections-marquee__item { width: clamp(250px, 22vw, 290px); flex: none; }
+.collections-marquee:hover .collections-marquee__track,
+.collections-marquee:focus-within .collections-marquee__track { animation-play-state: paused; }
+@keyframes collections-drift { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) {
+  .collections-marquee__track { animation: none; width: auto; }
+  .collections-marquee__group { flex-wrap: wrap; width: 100%; padding: 0; }
+  .collections-marquee__item { flex: 1 1 250px; }
+  .collections-marquee__copy { display: none; }
 }
 
 .form-field:focus {
@@ -85,7 +101,7 @@
   }
 }
 
-@media (width < 64rem) {
+@media (width < 80rem) {
   :root:has(#menu-movil-drawer) {
     overflow: hidden;
   }

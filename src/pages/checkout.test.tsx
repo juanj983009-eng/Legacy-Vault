@@ -5,6 +5,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import { byId, catalogResponse } from '../test/catalogFixture';
 import { AppRoutes } from '../app/routes';
 import { CART_STORAGE_KEY } from '../services/cartStorage';
+import { ORDERS_STORAGE_KEY } from '../services/ordersStorage';
 import { createDemoOrder } from '../utils/demoOrder';
 import { validateCheckout } from '../utils/validation';
 
@@ -96,7 +97,8 @@ describe('checkout de demostración', () => {
     expect(main().queryByText('Visitante de prueba')).toBeNull();
     expect(main().queryByText('demo@example.test')).toBeNull();
     await waitFor(() => expect(JSON.parse(localStorage.getItem(CART_STORAGE_KEY)!)).toEqual({ version: 1, items: [] }));
-    expect(localStorage.length).toBe(1);
+    expect(localStorage.getItem(ORDERS_STORAGE_KEY)).not.toBeNull();
+    expect(localStorage.length).toBe(2);
     expect(sessionStorage.length).toBe(0);
     app.unmount();
     open('/checkout');

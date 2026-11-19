@@ -1,10 +1,12 @@
 import { useId } from 'react';
+import { motion, useReducedMotion } from 'motion/react';
 import { Link } from 'react-router';
 import { PATHS } from '../../app/paths';
 import type { Product } from '../../types/catalog';
 import { formatMoney } from '../../utils/money';
 import { AddToCartButton } from '../cart/AddToCartButton';
 import { Badge } from '../ui/Badge';
+import { FavoriteButton } from './FavoriteButton';
 import { ProductPhoto } from './ProductPhoto';
 
 export interface ProductCardProps {
@@ -16,11 +18,14 @@ export interface ProductCardProps {
 
 export function ProductCard({ product, categoryName, featured = false, className = '' }: ProductCardProps) {
   const titleId = useId();
+  const reduceMotion = useReducedMotion();
   const detailUrl = PATHS.product.replace(':id', product.id);
   const isAvailable = product.availability === 'available';
 
   return (
-    <article
+    <motion.article
+      whileHover={reduceMotion ? {} : { y: -4 }}
+      transition={{ duration: 0.22, ease: 'easeOut' }}
       className={`group flex flex-col rounded-tarjeta border border-contorno bg-pizarra overflow-hidden transition-all duration-200 hover:border-bronce hover:shadow-lg ${className}`}
     >
       {/* CONTENEDOR DE IMAGEN */}
@@ -40,6 +45,9 @@ export function ProductCard({ product, categoryName, featured = false, className
               No disponible
             </Badge>
           )}
+        </div>
+        <div className="absolute top-3 right-3 z-10">
+          <FavoriteButton productId={product.id} productName={product.name} />
         </div>
       </div>
 
@@ -73,6 +81,6 @@ export function ProductCard({ product, categoryName, featured = false, className
           </div>
         </div>
       </div>
-    </article>
+    </motion.article>
   );
 }

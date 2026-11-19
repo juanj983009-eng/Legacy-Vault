@@ -37,8 +37,10 @@ describe('base React y navegación', () => {
   it.each([
     ['/catalogo', 'Catálogo'],
     ['/colecciones', 'Colecciones'],
+    ['/favoritos', 'Favoritos'],
     ['/carrito', 'Carrito'],
     ['/checkout', 'Finalizar compra'],
+    ['/pedidos', 'Mis pedidos'],
     ['/login', 'Acceso'],
     ['/registro', 'Crear perfil'],
     ['/nosotros', 'Nosotros'],

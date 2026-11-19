@@ -1,14 +1,23 @@
 import { Link } from 'react-router';
+import { motion, useReducedMotion } from 'motion/react';
 import { PATHS } from '../../app/paths';
 import { IconArrowRight } from '../ui/Icons';
 
 export function CallToActionSection() {
+  const reduceMotion = useReducedMotion();
+  const canObserve = typeof IntersectionObserver !== 'undefined' && !reduceMotion;
   return (
     <section className="relative overflow-hidden bg-carbon py-20 sm:py-24">
       {/* FONDO SUTIL CON RELIEVE */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,rgba(184,137,63,0.08),transparent)] pointer-events-none" />
 
-      <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+      <motion.div
+        initial={canObserve ? { opacity: 0, y: 16 } : false}
+        {...(canObserve ? { whileInView: { opacity: 1, y: 0 } } : {})}
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
+        className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center"
+      >
         <span className="font-body text-xs font-semibold uppercase tracking-widest text-bronce">
           Coleccionismo y Patrimonio
         </span>
@@ -34,7 +43,7 @@ export function CallToActionSection() {
             Ver colecciones temáticas
           </Link>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

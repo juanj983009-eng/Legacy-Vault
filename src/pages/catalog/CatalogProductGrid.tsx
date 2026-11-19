@@ -4,7 +4,7 @@ import type { Product } from '../../types/catalog';
 
 export function CatalogProductGrid({ items, label }: { items: readonly Product[]; label: string }) {
   return (
-    <ul aria-label={label} className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+    <ul aria-label={label} className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3 min-[100rem]:grid-cols-[repeat(auto-fill,minmax(17rem,1fr))]">
       {items.map((product) => (
         <li key={product.id} className="min-w-0">
           <ProductCard

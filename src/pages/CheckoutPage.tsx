@@ -9,6 +9,7 @@ import { useProducts } from '../hooks/useProducts';
 import { useCart } from '../hooks/useCart';
 import { usePageMetadata } from '../hooks/usePageMetadata';
 import type { DemoOrder } from '../types/checkout';
+import { saveOrder } from '../services/ordersStorage';
 import { createDemoOrder, toOrderLines } from '../utils/demoOrder';
 import { CheckoutForm } from './checkout/CheckoutForm';
 import { CheckoutSummary } from './checkout/CheckoutSummary';
@@ -20,6 +21,8 @@ export function CheckoutPage() {
   const catalog = useProducts();
   const [order, setOrder] = useState<DemoOrder>();
   const [error, setError] = useState('');
+  const [storageWarning, setStorageWarning] = useState<string>();
+  const [savedToHistory, setSavedToHistory] = useState(false);
   const confirmed = useRef(false);
   const title = order ? 'Confirmación del pedido' : items.length ? 'Finaliza tu pedido' : 'Finalizar compra';
   const heading = usePageMetadata(title);
@@ -31,6 +34,18 @@ export function CheckoutPage() {
       if (!snapshot) {
         setError('Revisa la disponibilidad y las cantidades en tu carrito antes de continuar.');
         return;
+      }
+      const orderSummary = {
+        id: snapshot.id,
+        createdAt: new Date().toISOString(),
+        lines: snapshot.lines,
+        totals: snapshot.totals,
+      };
+      const saveResult = saveOrder(orderSummary);
+      if (saveResult.success) {
+        setSavedToHistory(true);
+      } else {
+        setStorageWarning(saveResult.warning ?? 'No se pudo guardar el pedido en el historial de este navegador.');
       }
       confirmed.current = true;
       setOrder(snapshot);
@@ -67,8 +82,24 @@ export function CheckoutPage() {
                 <p className="text-xs font-semibold text-arena">Número de pedido</p>
                 <p className="mt-1 wrap-break-word font-display text-lg font-bold tabular-nums text-bronce-hover">{order.id}</p>
               </div>
-              <p className="text-sm leading-relaxed text-arena">Esta confirmación no genera un cobro ni un envío. El resumen se borra al salir o recargar.</p>
-              <Link to={PATHS.catalog} className="inline-flex min-h-11 items-center rounded-control bg-bronce px-4 text-sm font-bold text-carbon hover:bg-bronce-hover">Explorar catálogo</Link>
+              <p className="text-sm leading-relaxed text-arena">Esta confirmación no genera un cobro ni un envío. Corresponde a una simulación de demostración.</p>
+              {storageWarning ? (
+                <p role="status" className="rounded-control border border-bronce/40 bg-pizarra p-3 text-sm text-arena">
+                  {storageWarning}
+                </p>
+              ) : savedToHistory ? (
+                <p className="text-xs text-arena">
+                  El resumen del pedido se ha guardado en el historial de este navegador para tu consulta.
+                </p>
+              ) : null}
+              <div className="flex flex-wrap items-center gap-3 pt-2">
+                <Link to={PATHS.orders} className="inline-flex min-h-11 items-center rounded-control bg-bronce px-4 text-sm font-bold text-carbon hover:bg-bronce-hover">
+                  Ver mis pedidos
+                </Link>
+                <Link to={PATHS.catalog} className="inline-flex min-h-11 items-center rounded-control border border-contorno bg-pizarra px-4 text-sm font-bold text-marfil hover:border-bronce">
+                  Explorar catálogo
+                </Link>
+              </div>
             </section>
             <CheckoutSummary lines={order.lines} totals={order.totals} />
           </div>
