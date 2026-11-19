@@ -16,7 +16,8 @@ export function CategoryGrid() {
           </Link>
         </div>
 
-        <div className="collections-marquee relative left-1/2 w-screen -translate-x-1/2">
+      </div>
+        <div className="collections-marquee w-full">
           <div className="collections-marquee__track">
             <ul className="collections-marquee__group" aria-label="Colecciones destacadas">
               {categories.map((category) => (
@@ -34,7 +35,6 @@ export function CategoryGrid() {
             </ul>
           </div>
         </div>
-      </div>
     </section>
   );
 }
