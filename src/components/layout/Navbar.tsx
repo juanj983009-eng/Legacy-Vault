@@ -56,7 +56,7 @@ export function Navbar() {
   }, [mobileMenuOpen]);
 
   const navLinkClasses = ({ isActive }: { isActive: boolean }) =>
-    `inline-flex min-h-11 items-center px-1 text-sm font-medium transition-colors border-b-2 ${
+    `inline-flex min-h-11 shrink-0 items-center whitespace-nowrap px-1 text-sm font-medium transition-colors border-b-2 ${
       isActive
         ? 'border-bronce text-bronce'
         : 'border-transparent text-marfil/85 hover:text-bronce hover:border-bronce/40'
@@ -89,7 +89,7 @@ export function Navbar() {
         </Link>
 
         {/* NAVEGACIÓN PRINCIPAL DESKTOP */}
-        <div className="hidden xl:flex items-center gap-7">
+        <div className="hidden xl:flex shrink-0 items-center gap-3 2xl:gap-5">
           <NavLink end to={PATHS.home} className={navLinkClasses}>
             Inicio
           </NavLink>
@@ -105,10 +105,13 @@ export function Navbar() {
           <NavLink to={PATHS.contact} className={navLinkClasses}>
             Contacto
           </NavLink>
+          <NavLink to={PATHS.orders} aria-label="Mis pedidos" className={navLinkClasses}>
+            Pedidos
+          </NavLink>
         </div>
 
         {/* ACCIONES GLOBALES */}
-        <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
+        <div className="flex items-center gap-1.5 sm:gap-2 2xl:gap-3 shrink-0">
           {!accountName && (
             <div className="hidden xl:flex items-center gap-3.5 border-r border-contorno pr-4">
               <NavLink to={PATHS.login} className={utilityLinkClasses}>Login</NavLink>
@@ -121,7 +124,7 @@ export function Navbar() {
           <Link
             to={PATHS.catalog}
             aria-label="Búsqueda en catálogo"
-            className="hidden md:inline-flex min-h-11 min-w-11 items-center justify-center rounded-control p-2 text-arena transition-colors hover:text-bronce focus-visible:outline-2 focus-visible:outline-bronce"
+            className="hidden md:inline-flex xl:hidden 2xl:inline-flex min-h-11 min-w-11 items-center justify-center rounded-control p-2 text-arena transition-colors hover:text-bronce focus-visible:outline-2 focus-visible:outline-bronce"
           >
             <IconSearch className="h-5 w-5" />
           </Link>
@@ -250,6 +253,15 @@ export function Navbar() {
                 Pedidos y perfil
               </span>
               <ul className="mt-3 flex flex-col space-y-1">
+                <li>
+                  <NavLink
+                    to={PATHS.orders}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex min-h-11 items-center rounded-control px-3 text-base font-medium text-marfil hover:bg-pizarra hover:text-bronce aria-[current=page]:bg-pizarra aria-[current=page]:text-bronce"
+                  >
+                    Mis pedidos
+                  </NavLink>
+                </li>
                 <li>
                   <NavLink
                     to={PATHS.favorites}

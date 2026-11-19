@@ -28,7 +28,7 @@ describe('Historial de pedidos simulados (OrdersPage & Checkout)', () => {
     const emptyHeading = screen.getByRole('heading', { name: 'No tienes pedidos registrados.', level: 2 });
     expect(emptyHeading).toBeVisible();
     expect(
-      screen.getByText(/los pedidos simulados que confirmes durante la demostración se guardarán en este navegador/i)
+      screen.getByText(/cuando completes un pedido, encontrarás aquí sus piezas, cantidades y total/i)
     ).toBeVisible();
 
     const emptySection = emptyHeading.closest('section')!;
@@ -36,8 +36,7 @@ describe('Historial de pedidos simulados (OrdersPage & Checkout)', () => {
     expect(catalogLink).toHaveAttribute('href', '/catalogo');
 
     // Avisos claros y discretos
-    expect(screen.getByText(/demostración local:/i)).toBeVisible();
-    expect(screen.getByText(/almacenamiento en este navegador:/i)).toBeVisible();
+    expect(screen.getByText(/tu historial se guarda en este navegador y no se sincroniza entre dispositivos/i)).toBeVisible();
   });
 
   it('permite confirmar un pedido en checkout, guardarlo localmente sin datos personales y consultarlo tras recargar', async () => {

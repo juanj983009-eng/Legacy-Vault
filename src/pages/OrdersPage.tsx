@@ -78,7 +78,7 @@ export function OrdersPage() {
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <p className="text-xs font-semibold tracking-widest text-arena uppercase">
-                Demostración & Colección
+                Tu colección
               </p>
               <h1
                 ref={heading}
@@ -88,7 +88,7 @@ export function OrdersPage() {
                 Mis pedidos
               </h1>
               <p className="mt-2 max-w-2xl text-sm text-arena sm:text-base">
-                Consulta los pedidos simulados confirmados durante esta demostración en tu navegador.
+                Consulta tus pedidos y vuelve a descubrir las piezas que elegiste.
               </p>
             </div>
             {orders.length > 0 && !confirmingClear && (
@@ -109,28 +109,11 @@ export function OrdersPage() {
       <div className="mx-auto max-w-7xl space-y-6 px-4 py-6 sm:px-6 lg:px-8 lg:py-10">
         {/* AVISOS TRANSPARENTES DE DEMOSTRACIÓN Y ALMACENAMIENTO */}
         <section
-          aria-label="Información de la demostración"
-          className="space-y-3 rounded-control border border-contorno bg-pizarra/60 p-4 sm:p-5 text-sm"
+          aria-label="Información del historial"
+          className="flex items-start gap-3 rounded-control border border-contorno bg-pizarra/40 px-4 py-3 text-sm text-arena"
         >
-          <div className="flex items-start gap-3">
-            <IconInfo className="size-5 shrink-0 text-bronce mt-0.5" />
-            <div className="space-y-1.5 text-arena">
-              <p>
-                <strong className="font-semibold text-marfil">Demostración local:</strong> Este
-                historial corresponde exclusivamente a pedidos simulados generados durante la prueba
-                en este navegador. No implica cobros bancarios, facturación real ni despachos de
-                mercancía.
-              </p>
-              <p>
-                <strong className="font-semibold text-marfil">
-                  Almacenamiento en este navegador:
-                </strong>{' '}
-                Los registros se conservan únicamente en este equipo y navegador. No están
-                asociados a una cuenta privada en la nube ni sincronizados entre dispositivos;
-                cualquier persona que use este navegador podrá verlos.
-              </p>
-            </div>
-          </div>
+          <IconInfo className="mt-0.5 size-4 shrink-0 text-bronce" />
+          <p>Tu historial se guarda en este navegador y no se sincroniza entre dispositivos.</p>
         </section>
 
         {/* FEEDBACK O CONFIRMACIÓN DE BORRADO */}
@@ -207,7 +190,7 @@ export function OrdersPage() {
           <EmptyOrdersState />
         ) : (
           <div className="space-y-6" aria-label="Lista de pedidos">
-            <div className="flex items-center justify-between text-xs font-semibold text-arena">
+            <div className="flex flex-wrap items-center justify-between gap-2 text-xs font-semibold text-arena">
               <span>
                 {orders.length} {orders.length === 1 ? 'pedido guardado' : 'pedidos guardados'}
               </span>
@@ -230,54 +213,54 @@ function OrderCard({ order }: { order: StoredDemoOrder }) {
   return (
     <article
       aria-labelledby={`order-heading-${order.id}`}
-      className="rounded-control border border-contorno bg-pizarra/70 p-5 sm:p-6 transition-colors hover:border-bronce/60"
+      className="overflow-hidden rounded-tarjeta border border-contorno bg-pizarra/70 transition-colors hover:border-bronce/60"
     >
       {/* CABECERA DEL PEDIDO */}
-      <div className="flex flex-col gap-2 border-b border-contorno/70 pb-4 sm:flex-row sm:items-center sm:justify-between">
+      <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-4 border-b border-contorno bg-carbon/35 px-5 py-4 sm:px-6">
         <div>
-          <span className="text-xs font-semibold text-arena">Número de pedido</span>
+          <span className="text-xs font-medium text-arena/75">Número de pedido</span>
           <h2
             id={`order-heading-${order.id}`}
-            className="font-display text-xl font-bold tabular-nums text-bronce-hover"
+            className="mt-1 break-all font-display text-lg font-bold tabular-nums text-bronce-hover"
           >
             {order.id}
           </h2>
         </div>
         <div className="sm:text-right">
-          <span className="text-xs font-semibold text-arena">Fecha de confirmación</span>
-          <p className="text-sm text-marfil tabular-nums">{formatOrderDate(order.createdAt)}</p>
+          <span className="text-xs font-medium text-arena/75">Fecha de confirmación</span>
+          <p className="mt-1 text-sm text-marfil tabular-nums">{formatOrderDate(order.createdAt)}</p>
         </div>
       </div>
 
       {/* PIEZAS DEL PEDIDO */}
-      <div className="divide-y divide-contorno/50 py-3">
+      <div className="divide-y divide-contorno/50 px-5 py-1 sm:px-6">
         {order.lines.map((line) => (
           <div
             key={line.productId}
-            className="flex items-center justify-between gap-4 py-3 text-sm"
+            className="flex items-center justify-between gap-3 py-4 text-sm"
           >
             <div className="flex items-center gap-3 min-w-0">
               {line.image ? (
                 <img
                   src={line.image.src}
                   alt={line.image.alt}
-                  width={48}
-                  height={48}
-                  className="size-12 shrink-0 rounded-control border border-contorno object-cover"
+                  width={72}
+                  height={72}
+                  className="size-16 shrink-0 rounded-control border border-contorno object-cover sm:size-18"
                 />
               ) : (
-                <div className="grid size-12 shrink-0 place-items-center rounded-control border border-contorno bg-carbon text-arena">
+                <div className="grid size-16 shrink-0 place-items-center rounded-control border border-contorno bg-carbon text-arena sm:size-18">
                   <IconHistory className="size-5" />
                 </div>
               )}
               <div className="min-w-0">
                 <Link
                   to={PATHS.product.replace(':id', line.productId)}
-                  className="font-semibold text-marfil hover:text-bronce-hover transition-colors truncate block"
+                  className="block font-display text-base font-bold leading-snug text-marfil transition-colors hover:text-bronce-hover"
                 >
                   {line.name}
                 </Link>
-                <span className="text-xs text-arena">
+                <span className="mt-1 block text-xs text-arena/75">
                   Cantidad: <strong className="text-marfil">{line.quantity}</strong>
                 </span>
               </div>
@@ -292,13 +275,13 @@ function OrderCard({ order }: { order: StoredDemoOrder }) {
       </div>
 
       {/* TOTALES DEL PEDIDO */}
-      <div className="flex flex-col gap-2 border-t border-contorno/70 pt-4 sm:flex-row sm:items-center sm:justify-between">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-t border-contorno/70 bg-carbon/20 px-5 py-4 sm:px-6">
         <div className="text-xs text-arena">
           <span>
             {order.totals.itemCount} {order.totals.itemCount === 1 ? 'pieza' : 'piezas'}
           </span>
           <span className="mx-2">•</span>
-          <span>Envío de cortesía (Gratuito)</span>
+          <span>Envío de cortesía</span>
         </div>
         <div className="flex items-baseline gap-2 sm:justify-end">
           <span className="text-xs font-semibold uppercase tracking-wider text-arena">Total:</span>

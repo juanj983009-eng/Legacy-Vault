@@ -7,6 +7,7 @@ import { IconArrowRight } from '../ui/Icons';
 const storeLinks = [
   { to: PATHS.about, label: 'Nosotros' },
   { to: PATHS.contact, label: 'Contacto' },
+  { to: PATHS.orders, label: 'Mis pedidos' },
 ];
 
 const footerLinkClass = 'inline-flex min-h-10 items-center rounded-sm py-1.5 text-sm leading-snug text-arena transition-colors hover:text-bronce-hover';

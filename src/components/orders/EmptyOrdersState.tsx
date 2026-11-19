@@ -16,7 +16,7 @@ export function EmptyOrdersState() {
           No tienes pedidos registrados.
         </h2>
         <p className="mt-3 max-w-[48ch] text-sm leading-relaxed text-arena sm:text-base">
-          Los pedidos simulados que confirmes durante la demostración se guardarán en este navegador para que puedas revisar sus piezas, cantidades y totales.
+          Cuando completes un pedido, encontrarás aquí sus piezas, cantidades y total.
         </p>
         <Link
           to={PATHS.catalog}
